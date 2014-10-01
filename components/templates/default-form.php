@@ -5,7 +5,7 @@
 		<?php
 			echo get_avatar( $email, 75 );
 
-			if ( $gravatar_profile = go_gravatar()->get_profile( $email ) )
+			if ( function_exists( 'go_gravatar' ) && $gravatar_profile = go_gravatar()->get_profile( $email ) )
 			{
 				?>
 				<h4><?php echo esc_attr( $gravatar_profile->displayName ); ?></h4>
@@ -28,7 +28,12 @@
 	</fieldset>
 	<label class="required notice">Required</label>
 	<fieldset class="recaptcha">
-		<?php echo go_recaptcha()->get_inputs(); ?>
+		<?php
+			if ( function_exists( 'go_recaptcha' ) )
+			{
+				echo go_recaptcha()->get_inputs();
+			}//end if
+		?>
 	</fieldset>
 	<button class="submit">
 		<?php echo esc_attr( $attributes['submit'] ); ?>
