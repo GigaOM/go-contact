@@ -150,7 +150,7 @@ class GO_Contact_Form
 		} // END if
 
 		// Validate the reCaptcha
-		if ( ! go_recaptcha()->check_request() )
+		if ( function_exists( 'go_recaptcha' ) && ! go_recaptcha()->check_request() )
 		{
 			$return['error'] = go_recaptcha()->get_message_text();
 			echo json_encode( $return );

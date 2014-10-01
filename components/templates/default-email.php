@@ -1,7 +1,7 @@
 <?php
 echo wp_kses_post( $message );
 
-if ( $gravatar_profile = go_gravatar()->get_profile( $from_email ) )
+if ( function_exists( 'go_gravatar' ) && $gravatar_profile = go_gravatar()->get_profile( $from_email ) )
 {
 	echo "\n\r" . '-----------------';
 
