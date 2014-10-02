@@ -1,4 +1,4 @@
-<a class="goicon icon-email-circled contact-form-icon" itemprop="url"></a>
+<a class="goicon icon-email-circled contact-form-icon" itemprop="url" title="Show contact form"></a>
 <form action="<?php echo esc_url_raw( $target ); ?>" id="<?php echo esc_attr( $this->slug . '-' . $this->instance ); ?>" class="<?php echo esc_attr( $this->slug ); ?> in-plain-sight">
 	<?php $this->nonce_field( $this->instance ); ?>
 	<input type="hidden" name="<?php echo esc_attr( $this->get_field_name( 'hash' ) ); ?>" value="<?php echo esc_attr( $email_hash ); ?>" />
