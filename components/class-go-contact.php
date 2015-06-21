@@ -33,11 +33,13 @@ class GO_Contact_Form
 			return;
 		}//end if
 
+		$script_config = apply_filters( 'go_config', array( 'version' => 1 ), 'go-script-version' );
+
 		wp_register_script(
 			$this->slug . '-js',
 			plugins_url( 'js/' . $this->slug . '.js', __FILE__ ),
 			array( 'jquery' ),
-			FALSE,
+			$script_config['version'],
 			TRUE
 		);
 	} // END init
