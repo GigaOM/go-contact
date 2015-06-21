@@ -12,6 +12,7 @@ $required_fields = array(
 	<?php $this->nonce_field( $this->instance );?>
 	<input type="hidden" name="<?php echo esc_attr( $this->get_field_name( 'hash' ) ); ?>" value="<?php echo esc_attr( $email_hash ); ?>" />
 	<input type="hidden" name="<?php echo $this->get_field_name( 'required' ); ?>" value="<?php echo esc_attr( implode( ',', $required_fields ) ); ?>" id="<?php echo $this->get_field_id( 'required' ); ?>">
+	<div class="info" style="display: none;"></div>
 	<fieldset class="contact_info">
 		<label class="required" for="<?php echo $this->get_field_id( 'name' ); ?>">Full Name</label>
 		<input type="text" name="<?php echo $this->get_field_name( 'name' ); ?>" value="" class="name" id="<?php echo $this->get_field_id( 'name' ); ?>" placeholder="Full Name">
