@@ -92,6 +92,14 @@ $required_fields = array(
 			<option value="audi">Utilities</option>
 		</select>
 	</fieldset>
+	<fieldset class="recaptcha">
+		<?php
+			if ( function_exists( 'go_recaptcha' ) )
+			{
+				echo go_recaptcha()->get_inputs();
+			}//end if
+		?>
+	</fieldset>
 	<button class="submit button primary" style="font-size: larger;">
 		<?php echo esc_html( $attributes['submit'] ); ?>
 	</button>
