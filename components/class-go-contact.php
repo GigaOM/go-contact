@@ -122,6 +122,15 @@ class GO_Contact_Form
 			die;
 		} // END if
 
+		// Get list of required fields if it exists
+		if ( isset( $_POST[ $this->slug ][ $instance ]['required'] ) ) {
+			$required = explode( ',', $_POST[ $this->slug ][ $instance ] );
+			
+			if ( ! empty( $required ) ) {
+				$this->required_fields = $required;
+			}
+		}
+
 		// Check for all of the necessary fields
 		if ( $fields = $this->check_required( $instance ) )
 		{
