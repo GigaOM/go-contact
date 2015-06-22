@@ -33,11 +33,13 @@ class GO_Contact_Form
 			return;
 		}//end if
 
+		$script_config = apply_filters( 'go_config', array( 'version' => 1 ), 'go-script-version' );
+
 		wp_register_script(
 			$this->slug . '-js',
 			plugins_url( 'js/' . $this->slug . '.js', __FILE__ ),
 			array( 'jquery' ),
-			FALSE,
+			$script_config['version'],
 			TRUE
 		);
 	} // END init
@@ -122,6 +124,15 @@ class GO_Contact_Form
 			die;
 		} // END if
 
+		// Get list of required fields if it exists
+		if ( isset( $_POST[ $this->slug ][ $instance ]['required'] ) ) {
+			$required = explode( ',', $_POST[ $this->slug ][ $instance ]['required'] );
+			
+			if ( ! empty( $required ) ) {
+				$this->required_fields = $required;
+			}
+		}
+
 		// Check for all of the necessary fields
 		if ( $fields = $this->check_required( $instance ) )
 		{
@@ -163,8 +174,10 @@ class GO_Contact_Form
 		$message = wp_kses_post( $_POST[ $this->slug ][ $instance ]['body'] );
 		$to = sanitize_email( $recipient );
 
+		$email_template = isset( $_POST[ $this->slug ][ $instance ]['email-template'] ) ? $_POST[ $this->slug ][ $instance ]['email-template'] : 'default';
+
 		ob_start();
-		include __DIR__ . '/templates/default-email.php';
+		include __DIR__ . '/templates/' . esc_attr( $email_template ) . '-email.php';
 		$message = ob_get_clean();
 
 		if (

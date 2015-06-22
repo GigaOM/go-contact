@@ -66,7 +66,7 @@ var go_contact_form = {};
 
 	//allows templates with email icon to toggle the form open/closed
 	$( function() {
-		$( '.go-contact' ).each( function() {
+		$( '.go-contact' ).not( '.always-show' ).each( function() {
 			// get the form
 			var $contact_form = $( this );
 			// get the icon
