@@ -10,7 +10,7 @@ $required_fields = array(
 ?>
 <form action="<?php echo esc_url_raw( $target ); ?>" id="<?php echo esc_attr( $this->slug . '-' . $this->instance ); ?>" class="<?php echo esc_attr( $this->slug ); ?> always-show go-form-interested" style="display: block;">
 	<?php $this->nonce_field( $this->instance );?>
-	<input type="hidden" name=""<?php echo esc_attr( $this->get_field_name( 'email-template' ) ); ?>" value="interested" id=""<?php echo esc_attr( $this->get_field_id( 'email-template' ) ); ?>">
+	<input type="hidden" name="<?php echo esc_attr( $this->get_field_name( 'email-template' ) ); ?>" value="interested" id=""<?php echo esc_attr( $this->get_field_id( 'email-template' ) ); ?>">
 	<input type="hidden" name="<?php echo esc_attr( $this->get_field_name( 'hash' ) ); ?>" value="<?php echo esc_attr( $email_hash ); ?>" />
 	<input type="hidden" name="<?php echo $this->get_field_name( 'required' ); ?>" value="<?php echo esc_attr( implode( ',', $required_fields ) ); ?>" id="<?php echo $this->get_field_id( 'required' ); ?>">
 	<input type="hidden" name="<?php echo esc_attr( $this->get_field_name( 'subject' ) ); ?>" value="Someone requested more information about Gigaom Research" id=""<?php echo esc_attr( $this->get_field_id( 'subject' ) ); ?>">
