@@ -13,7 +13,7 @@ $required_fields = array(
 	<input type="hidden" name=""<?php echo esc_attr( $this->get_field_name( 'email-template' ) ); ?>" value="interested" id=""<?php echo esc_attr( $this->get_field_id( 'email-template' ) ); ?>">
 	<input type="hidden" name="<?php echo esc_attr( $this->get_field_name( 'hash' ) ); ?>" value="<?php echo esc_attr( $email_hash ); ?>" />
 	<input type="hidden" name="<?php echo $this->get_field_name( 'required' ); ?>" value="<?php echo esc_attr( implode( ',', $required_fields ) ); ?>" id="<?php echo $this->get_field_id( 'required' ); ?>">
-	<input type="hidden" name=""<?php echo esc_attr( $this->get_field_name( 'subject' ) ); ?>" value="Someone requested more information about Gigaom Research" id=""<?php echo esc_attr( $this->get_field_id( 'subject' ) ); ?>">
+	<input type="hidden" name="<?php echo esc_attr( $this->get_field_name( 'subject' ) ); ?>" value="Someone requested more information about Gigaom Research" id=""<?php echo esc_attr( $this->get_field_id( 'subject' ) ); ?>">
 	<div class="info" style="display: none;"></div>
 	<fieldset class="contact_info">
 		<label class="required" for="<?php echo $this->get_field_id( 'name' ); ?>">Full Name</label>
