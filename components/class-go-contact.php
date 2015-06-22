@@ -174,8 +174,10 @@ class GO_Contact_Form
 		$message = wp_kses_post( $_POST[ $this->slug ][ $instance ]['body'] );
 		$to = sanitize_email( $recipient );
 
+		$email_template = isset( $_POST[ $this->slug ][ $instance ]['email-template'] ) ? $_POST[ $this->slug ][ $instance ]['email-template'] : 'default';
+
 		ob_start();
-		include __DIR__ . '/templates/default-email.php';
+		include __DIR__ . '/templates/' . esc_attr( $email_template ) . '-email.php';
 		$message = ob_get_clean();
 
 		if (
